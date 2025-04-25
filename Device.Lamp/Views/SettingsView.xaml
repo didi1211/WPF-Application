@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Device.Lamp.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Device.Lamp.ViewModels">
+
+    <UserControl.DataContext>
+        <vm:SettingsViewModel />
+    </UserControl.DataContext>
+
+    <Grid Background="#F2F2F2">
+        <Border Background="White"
+                CornerRadius="20"
+                Padding="20"
+                Margin="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="300">
+
+            <StackPanel>
+                <TextBlock 
+                    Text="Settings"
+                    FontSize="24"
+                    FontFamily="{StaticResource poppins-medium}"
+                    Margin="0 0 0 20"
+                    HorizontalAlignment="Center">
+                </TextBlock>
+
+                <TextBlock 
+                    Text="Connection String"
+                    FontSize="12"
+                    FontFamily="{StaticResource poppins-light}"
+                    Margin="0 4">
+                </TextBlock>
+                
+                <TextBox 
+                    Text="{Binding ConnectionString, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource RoundedTextBoxStyle}"
+                    Margin="0 0 0 12">
+                </TextBox>
+
+                <TextBlock 
+                    Text="Device ID"
+                    FontSize="12"
+                    FontFamily="{StaticResource poppins-light}"
+                    Margin="0 4">
+                </TextBlock>
+                
+                <TextBox 
+                    Text="{Binding DeviceId, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource RoundedTextBoxStyle}"
+                    Margin="0 0 0 20">
+                </TextBox>
+
+                <Button 
+                    Content="Save" 
+                    Click="Spara_Click"
+                    Style="{StaticResource MenuButtonStyle}"
+                    FontFamily="{StaticResource poppins-light}"
+                    Background="#AEECEF"
+                    Foreground="White"
+                    FontSize="14">
+                </Button>
+
+                <TextBlock 
+                 Text="{Binding ConfirmationMessage}"
+                 FontFamily="{StaticResource poppins-light}"
+                 FontSize="12"
+                 Foreground="#B6E2D3"
+                 Margin="0 10 0 0"
+                 HorizontalAlignment="Center">
+                </TextBlock>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
